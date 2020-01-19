@@ -1,0 +1,38 @@
+﻿<nav>
+    <div>
+        <a href="">Proof of Concept</a>
+        <button @onclick="ToggleNavMenu">
+            <span></span>
+        </button>
+
+        <div class="@NavMenuCssClass">
+            <ul>
+                <li>
+                    <NavLink href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink href="counter">
+                        Counter
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink href="fetchdata">
+                        Weather
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

@@ -1,0 +1,40 @@
+// Removes all class clutter from htlm.
+
+nav {
+    @extend .navbar;
+    @extend .navbar-expand-lg;
+    @extend .navbar-dark;
+    @extend .bg-primary;
+
+    div {
+        @extend .container;
+
+        a {
+            @extend .navbar-brand;
+        }
+
+        button {
+            @extend .navbar-toggler;
+
+            span {
+                @extend .navbar-toggler-icon;
+            }
+        }
+
+        div {
+            @extend .navbar-collapse;
+
+            ul {
+                @extend .navbar-nav;
+
+                li {
+                    @extend .nav-item;
+
+                    a {
+                        @extend .nav-link;
+                    }
+                }
+            }
+        }
+    }
+}
