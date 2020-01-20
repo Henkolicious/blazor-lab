@@ -1,0 +1,49 @@
+﻿@page "/form"
+@using System.ComponentModel.DataAnnotations;
+
+
+@if (_submitted)
+{
+    <h2>(☞ﾟヮﾟ)☞ Submitted ☜(ﾟヮﾟ☜)</h2>
+}
+else
+{
+    <h2>Simple form with validation.</h2>
+    <EditForm Model="_person" OnValidSubmit="@HandleValidationSubmit">
+        <DataAnnotationsValidator />
+        <div class="form-row">
+            <div class="form-group">
+                <label for="ItemName">Name</label>
+                <InputText @bind-Value="_person.Name" id="ItemName" />
+                <ValidationMessage For="@(() => _person.Name)" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="ItemAge">Age</label>
+                <InputNumber @bind-Value="_person.Age" id="ItemAge" />
+                <ValidationMessage For="@(() => _person.Age)" />
+            </div>
+        </div>
+        <button class="primarybutton" type="submit">Submit</button>
+    </EditForm>
+}
+
+@code {
+    private bool _submitted { get; set; } = false;
+    private Person _person = new Person();
+
+    public class Person
+    {
+        [Required(ErrorMessage = "Please provide a name.", AllowEmptyStrings = false)]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "Please provide an age.")]
+        public int? Age { get; set; } = null;
+    }
+
+    protected async Task HandleValidationSubmit()
+    {
+        _submitted = true;
+        await Task.CompletedTask;
+    }
+}

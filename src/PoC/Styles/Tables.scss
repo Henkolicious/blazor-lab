@@ -1,0 +1,14 @@
+﻿@import "bootstrap-4.4.1/scss/_variables.scss";
+
+table {
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-hover;
+
+    thead {
+        tr {
+            @extend .bg-primary;
+            @extend .text-white;
+        }     
+    }
+}
