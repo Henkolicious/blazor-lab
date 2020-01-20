@@ -25,6 +25,10 @@ htlm {
     margin-bottom: 1rem;
 }
 
+.margin-top-medium {
+    margin-top: 5rem;
+}
+
 button.primarybutton {
     @extend .btn;
     @extend .btn-primary;

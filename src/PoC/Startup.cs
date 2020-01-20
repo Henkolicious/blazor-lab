@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PoC.Data;
+using PoC.Services;
 
 namespace PoC
 {
@@ -26,6 +27,7 @@ namespace PoC
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<CounterService, CounterService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
