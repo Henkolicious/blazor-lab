@@ -27,7 +27,7 @@ namespace PoC
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddSingleton<CounterService, CounterService>();
+            services.AddSingleton<ICounterService, CounterService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

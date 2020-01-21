@@ -1,25 +1,21 @@
 ﻿@page "/counter"
-
-@* stateful from backend *@
-@inject CounterService _counterService;
+@* stateful from backend service *@
+@inject ICounterService CounterService;
 
 <h1><span class="text-warning">Stateless</span> Component Counter</h1>
-
 <p>Current count: @currentCount</p>
-
 <button class="primarybutton" @onclick="IncrementCount">Click me</button>
 
 
-<h1 class="margin-top-medium"><span class="text-success">Stateful</span> Component Counter</h1>
-<p>Current count: @_counterService.Counter</p>
-<button class="primarybutton-outline" @onclick="_counterService.Increment">Click me</button>
+<h1 class="margin-top-medium"><span class="text-success">Stateful</span> Server side Component Counter</h1>
+<p>Current count: @CounterService.Counter</p>
+<button class="primarybutton-outline" @onclick="CounterService.Increment">Click me</button>
 
 @code {
     // stateless
     private int currentCount = 0;
-
     private void IncrementCount()
     {
         currentCount++;
-    }
+    }    
 }
